@@ -1,0 +1,454 @@
+.header-visible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* тут можна змінити кольори фону і тексту */
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    transition: top 0.3s;
+    z-index: 1000; /* забезпечує, щоб заголовок був поверх іншого контенту */
+}
+  
+.header-hidden {
+    top: -50px; /* це приховує заголовок */
+}
+ 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+
+
+.accordion {
+    height: 100%;
+    width: 10%;
+    overflow: hidden;
+    transition: 0.5s;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.accordion:nth-child(1) { background-image: url('img/1.jpg'); }
+.accordion:nth-child(2) { background-image: url('img/2.jpg'); }
+.accordion:nth-child(3) { background-image: url('img/3.jpg'); }
+.accordion:nth-child(4) { background-image: url('img/4.jpg'); }
+.accordion:nth-child(5) { background-image: url('img/5.jpg'); }
+.accordion:nth-child(6) { background-image: url('img/6.jpg'); }
+.accordion:nth-child(7) { background-image: url('img/7.jpg'); }
+
+.accordion > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.accordion > div div {
+    padding: 0 30px 18px 30px;
+    transition: 0.5s;
+}
+
+.accordion > div div h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    font-style: oblique;
+    letter-spacing: 2px;
+}
+/*текст в акордіоні*/
+.accordion > div div p {
+    color: #fff;
+    padding: 15px 0 0 0;
+    font-size: 14px;
+    font-weight: 200;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.open {
+    width: 40%;
+    box-shadow: 
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset;
+}
+
+.open > div div {
+    transition-delay: 0.6s;
+}
+
+.accordion:not( .open ) {
+    cursor: pointer;
+}
+
+.accordion:not( .open ) > div {
+    background-color: rgba(0, 0, 0, 0.7);/*затемнення до наведення*/
+    transition: 0.9s;
+}
+
+.accordion:not( .open ) > div:hover /*висвітлення після наведення*/ {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.accordion:not( .open ) > div::before,
+.accordion:not( .open ) > div::after {
+    content: '';
+    display: block;
+    width: 0;
+    position: absolute;
+    top: calc( 50% - 10px );
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transition: 0.9s;
+}
+
+.accordion:not( .open ) > div::before {
+    border-right: 8px solid #fff;
+    left: -8px;
+}
+
+.accordion:not( .open ) > div::after {
+    border-left: 8px solid #fff;
+    right: -8px;
+}
+
+.accordion:not( .open ) > div:hover::before {
+    left: 35%;
+}
+
+.accordion:not( .open ) > div:hover::after {
+    right: 35%;
+}
+
+.accordion:not( .open ) > div div /*звернення до div без класу open*/ {
+    transform: translateY( 100vh );
+}
+
+/* Нові CSS-стилі для другої секції */
+
+.second-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.second-section .accordion {
+    height: 100%;
+    width: 10%;
+    overflow: hidden;
+    transition: 0.5s;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.second-section .accordion:nth-child(1) { background-image: url('img/a1.jpg'); }
+.second-section .accordion:nth-child(2) { background-image: url('img/a2.jpg'); }
+.second-section .accordion:nth-child(3) { background-image: url('img/a7.jpg'); }
+.second-section .accordion:nth-child(4) { background-image: url('img/a4.jpg'); }
+.second-section .accordion:nth-child(5) { background-image: url('img/a5.jpg'); }
+.second-section .accordion:nth-child(6) { background-image: url('img/a6.jpg'); }
+.second-section .accordion:nth-child(7) { background-image: url('img/a3.jpg'); }
+
+.second-section .accordion > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.second-section .accordion > div div {
+    padding: 0 30px 20px 30px;
+    transition: 0.5s;
+}
+
+.second-section .accordion > div div h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    font-style: oblique;
+    letter-spacing: 2px;
+}
+
+.second-section .accordion > div div p {
+    color: #fff;
+    padding: 15px 0 0 0;
+    font-size: 14px;
+    font-weight: 200;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.second-section .open {
+    width: 40%;
+    box-shadow: 
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset,
+    0 -600px 600px -600px #000 inset;
+}
+
+.second-section .open > div div {
+    transition-delay: 0.6s;
+}
+
+.second-section .accordion:not(.open) {
+    cursor: pointer;
+}
+
+.second-section .accordion:not(.open) > div {
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.9s;
+}
+
+.second-section .accordion:not(.open) > div:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.second-section .accordion:not(.open) > div::before,
+.second-section .accordion:not(.open) > div::after {
+    content: '';
+    display: block;
+    width: 0;
+    position: absolute;
+    top: calc(50% - 10px);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transition: 0.9s;
+}
+
+.second-section .accordion:not(.open) > div::before {
+    border-right: 8px solid #fff;
+    left: -8px;
+}
+
+.second-section .accordion:not(.open) > div::after {
+    border-left: 8px solid #fff;
+    right: -8px;
+}
+
+.second-section .accordion:not(.open) > div:hover::before {
+    left: 35%;
+}
+
+.second-section .accordion:not(.open) > div:hover::after {
+    right: 35%;
+}
+
+.second-section .accordion:not(.open) > div div {
+    transform: translateY(100vh);
+}
+
+
+
+/*css для кнопок*/
+
+.navigation-panel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px; /* ширина панелі */
+    height: 100%;
+    background-color: #f0f0f0; /* колір панелі */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nav-toggle {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    background-color: #333; /* колір кнопки */
+    color: #fff; /* колір тексту кнопки */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 9999; /* забезпечуємо, щоб кнопка завжди була наверху */
+}
+.nav-toggl:hover {
+    background-color: #3e3e3e;; 
+}
+#overlay {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 1000; /* ensures it's above other content */
+}
+
+nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.menu-window {
+    position: fixed;
+    top: -180px; /* розташування від верхнього краю */
+    left: 10px; /* розташування від лівого краю */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+}
+
+
+.menu-btn {
+    margin-bottom: 10px; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    background-color: #333; 
+    color: #fff; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.menu-btn:hover {
+    background-color: #3e3e3e;; 
+}
+
+
+
+/*css інформ про мене*/
+
+#about-author .inst {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 9999;
+}
+
+#about-author .inst img {
+    width: 40px;
+    filter: invert(100%);
+}
+
+
+#about-author {
+    position: relative;
+    background-color: #1a1a1a; /* колір фону */
+    color: #fff; /* колір тексту */
+    padding: 50px; /* відступи */
+    max-width: 1520px; /* Максимальна ширина контенту */
+    margin: 0 auto; 
+}
+
+
+.author-info img {
+    width: 200px; 
+    margin-left: 200px;
+    border-radius: 30%; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+    margin-right: 20px; 
+}
+
+.author-text h2 {
+    font-size: 36px; 
+    margin-bottom: 20px; 
+}
+
+.author-text p {
+    font-size: 18px; 
+}
+.author-text ul{
+    color: #fff;
+    
+}
+
+
+
+
+
+/*форма*/
+.form-container {
+    max-width: 400px;
+    margin: 0 auto; 
+    padding: 30px; /* Внутрішні відступи */
+    border-radius: 10px; /* Закруглені кути */
+    background-color: #ffffff1a; /* Прозорий колір фону */
+    
+    margin-left: 400px; 
+}
+
+.form-title {
+    font-size: 24px; /* розмір заголовку */
+    margin-bottom: 10px; /* відступ знизу */
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%; /* ширина 100% */
+    padding: 10px; /* внутрішні відступи */
+    margin-bottom: 15px; /* відступ знизу */
+    border: none; /* без обрамлення */
+    border-radius: 5px; /* закруглені кути */
+    background-color: rgba(255, 255, 255, 0.420); /* прозорий колір фону */
+    color: #212121; /* колір тексту */
+}
+
+/* Додаємо стилі для textarea */
+.form-group textarea {
+    width: 100%; /* ширина 100% */
+    padding: 10px; /* внутрішні відступи */
+    margin-bottom: 10px; /* відступ знизу */
+    border: none; /* без обрамлення */
+    border-radius: 5px; /* закруглені кути */
+    background-color:  rgba(255, 255, 255, 0.420); /* прозорий колір фону */
+    color: #212121; /* колір тексту */
+    height: 70px; /* Фіксована висота */
+    resize: none; /* Вимкнення можливості змінювати розмір */
+}
+
+button {
+    padding: 5px 15px; /* внутрішні відступи */
+    border: none;
+    border-radius: 5px !important; /* закруглені кути */
+    background-color: rgba(255, 255, 255, 0.420); /* колір фону */
+    color: #212121; /* колір тексту */
+    cursor: pointer; /* зміна форми курсору при наведенні */
+    transition: background-color 0.3s; /* плавний перехід кольору фону */
+}
+
+button:hover {
+    background-color: #555555; /* зміна кольору фону при наведенні */
+}
+
